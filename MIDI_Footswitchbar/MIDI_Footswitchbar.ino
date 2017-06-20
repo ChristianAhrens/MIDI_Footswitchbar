@@ -126,7 +126,7 @@ void loop()
         
     for (int j = 0; j < CHANNELS; j++) {
       if( play_secondarynote[j] ) {
-        MIDI.sendNoteOff(j+NOTE_C1,127,1);
+        MIDI.sendNoteOn(j+NOTE_C1,0,1);
         g_last_risingedge_timer[j] = millis(); } }
   }
   else
@@ -175,7 +175,7 @@ void processInputs()
     else //if( switchStats[j]==HIGH
          //&&  fallingedge_timer[j]-g_last_fallingedge_timer[j] > NOTEOFF_DEBOUNCE_TIME )
     {
-      MIDI.sendNoteOff(j+NOTE_C0,127,1);
+      MIDI.sendNoteOn(j+NOTE_C0,0,1);
       g_noteStats[j] = LOW;
       digitalWrite(g_ledPins[j], LOW);
       g_last_fallingedge_timer[j] = millis();
