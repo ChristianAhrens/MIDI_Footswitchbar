@@ -1,4 +1,4 @@
-#include <MIDI.h>
+#include "MIDI.h"
 
 MIDI_CREATE_DEFAULT_INSTANCE();
 
