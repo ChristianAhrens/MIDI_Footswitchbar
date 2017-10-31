@@ -4,16 +4,16 @@ _Is a firmware for Arduino UNO to use switches connected to GPIOs to trigger mid
 ## Example steps to get it up and running
 * clone MIDI_Footswitchbar from https://github.com/ChristianAhrens/MIDI_Footswitchbar
 * clone hiduino from https://github.com/ddiakopoulos/hiduino
-* hiduino contains precompiled hex firmwares to be flashed e.g. by utilizing DFU mode of atmega microcontrollers
+* hiduino contains precompiled hex firmwares to be flashed e.g. by utilizing DFU mode of atmega microcontrollers (weird enough, the board this has been tested with has a atmega16u2 as usb serial driver chip - yet only the usbserial_uno_8u2.hex firmware does the job correctly)
 	*	usbserial_mega_8u2.hex to enable Arduino IDE to interact with arduino and flash the MIDI_Footswitchbar firmware
 		1.	reset board by grounding its reset pin
-		2.	<pre>sudo dfu-programmer atmega16u2 erase</pre>
-		3.	<pre>sudo dfu-programmer atmega16u2 flash usbserial_uno_8u2.hex</pre>
-		4.	<pre>sudo dfu-programmer atmega16u2 reset</pre>
+		2.	*sudo dfu-programmer atmega16u2 erase*
+		3.	*sudo dfu-programmer atmega16u2 flash usbserial_uno_8u2.hex*
+		4.	*sudo dfu-programmer atmega16u2 reset*
 		5.	use Arduino IDE as usual
 	*	arduino_midi.hex to have the thing act as MIDI HID device
 		1.	reset board by grounding its reset pin
-		2.	<pre>sudo dfu-programmer atmega16u2 erase</pre>
-		3.	<pre>sudo dfu-programmer atmega16u2 flash arduino_midi.hex</pre>
-		4.	<pre>sudo dfu-programmer atmega16u2 reset</pre>
+		2.	*sudo dfu-programmer atmega16u2 erase*
+		3.	*sudo dfu-programmer atmega16u2 flash arduino_midi.hex*
+		4.	*sudo dfu-programmer atmega16u2 reset*
 		5.	use board as MIDI USB HID device
